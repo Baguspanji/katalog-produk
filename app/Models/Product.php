@@ -36,4 +36,9 @@ class Product extends Model
     {
         return $this->belongsTo(Category::class);
     }
+
+    public function affiliateStore()
+    {
+        return $this->belongsTo(AffiliateStore::class, 'affiliate_type', 'name');
+    }
 }

@@ -14,6 +14,7 @@ class Category extends Model
         'name',
         'logo_url',
         'description',
+        'is_active',
     ];
 
     /**
