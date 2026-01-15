@@ -50,6 +50,19 @@ class ProductList extends Component
         }
     }
 
+    public function clickProduct(int $productId): void
+    {
+        $product = Product::findOrFail($productId);
+        
+        $product->increment('click_count');
+
+        $link = ($product->affiliate_type != 'Official' || $product->affiliate_link) 
+            ? $product->affiliate_link 
+            : \App\Helpers\PhoneHelper::generateWhatsAppLink($product->name);
+
+        $this->js('window.open("' . $link . '", "_blank")');
+    }
+
     public function render()
     {
         return view('livewire.product-list');
