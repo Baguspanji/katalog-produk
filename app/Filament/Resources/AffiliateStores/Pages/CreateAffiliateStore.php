@@ -8,4 +8,9 @@ use Filament\Resources\Pages\CreateRecord;
 class CreateAffiliateStore extends CreateRecord
 {
     protected static string $resource = AffiliateStoreResource::class;
+
+    protected function getRedirectUrl(): string
+    {
+        return $this->getResource()::getUrl('index');
+    }
 }
