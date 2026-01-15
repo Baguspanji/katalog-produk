@@ -1,0 +1,65 @@
+<header class="bg-transparent text-white absolute w-full z-10 py-2 md:py-10">
+    <div class="max-w-7xl mx-auto flex items-center justify-end md:justify-between px-6 py-4">
+        <a href="{{ route('home') }}" class="hidden md:block w-40 md:w-64">
+            <img src="{{ asset('assets/images/logo-putih.png') }}" alt="logo-spiceriatea" />
+        </a>
+
+        <!-- Desktop Navigation -->
+        <div class="hidden md:flex gap-2">
+            <a href="{{ route('home') }}" class="rounded-full px-8 py-1.5 border @if(Route::is('home')) border-green-200 text-green-200 @else border-transparent hover:text-green-200 hover:border-green-200 @endif">Beranda</a>
+            <a href="{{ route('product') }}" class="rounded-full px-8 py-1.5 border @if(Route::is('product')) border-green-200 text-green-200 @else border-transparent hover:text-green-200 hover:border-green-200 @endif">Produk Kami</a>
+        </div>
+
+        <button
+            class="hidden md:flex bg-white text-[#3E3E3F] px-2 md:px-4 py-2 rounded-full font-semibold items-center gap-1 md:gap-2 text-sm md:text-base">
+            <span class="w-4 md:w-5 h-4 md:h-5 shrink-0">
+                <svg width="100%" height="100%" viewBox="0 0 20 20" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M8.125 13.75C8.125 14.2473 8.32254 14.7242 8.67417 15.0758C9.02581 15.4275 9.50272 15.625 10 15.625C10.4973 15.625 10.9742 15.4275 11.3258 15.0758C11.6775 14.7242 11.875 14.2473 11.875 13.75C11.875 13.2527 11.6775 12.7758 11.3258 12.4242C10.9742 12.0725 10.4973 11.875 10 11.875C9.50272 11.875 9.02581 12.0725 8.67417 12.4242C8.32254 12.7758 8.125 13.2527 8.125 13.75Z"
+                        fill="#3E3E3F" />
+                    <path
+                        d="M12.5003 8.86663V7.49996C12.5003 7.27895 12.4125 7.06698 12.2562 6.9107C12.1 6.75442 11.888 6.66663 11.667 6.66663C11.446 6.66663 11.234 6.75442 11.0777 6.9107C10.9215 7.06698 10.8337 7.27895 10.8337 7.49996V8.74996H9.16699V7.49996C9.16699 7.27895 9.07919 7.06698 8.92291 6.9107C8.76663 6.75442 8.55467 6.66663 8.33366 6.66663C8.11265 6.66663 7.90068 6.75442 7.7444 6.9107C7.58812 7.06698 7.50033 7.27895 7.50033 7.49996V8.86663C5.86624 9.16125 4.38733 10.0199 3.32136 11.293C2.25538 12.5661 1.66991 14.1729 1.66699 15.8333V17.5C1.66699 17.8315 1.79869 18.1494 2.03311 18.3838C2.26753 18.6183 2.58547 18.75 2.91699 18.75H17.0837C17.4152 18.75 17.7331 18.6183 17.9675 18.3838C18.202 18.1494 18.3337 17.8315 18.3337 17.5V15.8333C18.3307 14.1729 17.7453 12.5661 16.6793 11.293C15.6133 10.0199 14.1344 9.16125 12.5003 8.86663ZM10.0003 10.625C10.6184 10.625 11.2226 10.8082 11.7365 11.1516C12.2504 11.495 12.6509 11.9831 12.8874 12.5541C13.124 13.1251 13.1859 13.7534 13.0653 14.3596C12.9447 14.9658 12.6471 15.5226 12.21 15.9597C11.773 16.3967 11.2162 16.6943 10.61 16.8149C10.0038 16.9355 9.37546 16.8736 8.80444 16.6371C8.23342 16.4006 7.74536 16 7.40198 15.4861C7.0586 14.9722 6.87533 14.368 6.87533 13.75C6.87533 12.9212 7.20457 12.1263 7.79062 11.5403C8.37667 10.9542 9.17152 10.625 10.0003 10.625Z"
+                        fill="#3E3E3F" />
+                    <path
+                        d="M17.5833 2.01672C12.5798 0.990684 7.42016 0.990684 2.41667 2.01672C1.74745 2.16304 1.14626 2.52864 0.708455 3.05551C0.270654 3.58238 0.0213181 4.24036 0 4.92505L0 6.59172C0 6.8653 0.053887 7.13621 0.158584 7.38897C0.263282 7.64174 0.416739 7.8714 0.610194 8.06486C1.0009 8.45556 1.5308 8.67505 2.08333 8.67505H4.58333C4.85692 8.67505 5.12783 8.62116 5.38059 8.51647C5.63335 8.41177 5.86302 8.25831 6.05647 8.06486C6.24993 7.8714 6.40339 7.64174 6.50808 7.38897C6.61278 7.13621 6.66667 6.8653 6.66667 6.59172V5.91672C6.6665 5.86423 6.68615 5.81362 6.72168 5.775C6.75721 5.73637 6.80602 5.71258 6.85833 5.70838C8.94909 5.53261 11.0509 5.53261 13.1417 5.70838C13.194 5.71258 13.2428 5.73637 13.2783 5.775C13.3139 5.81362 13.3335 5.86423 13.3333 5.91672V6.59172C13.3333 6.8653 13.3872 7.13621 13.4919 7.38897C13.5966 7.64174 13.7501 7.8714 13.9435 8.06486C14.3342 8.45556 14.8641 8.67505 15.4167 8.67505H17.9167C17.9167 8.67505 18.4612 8.62116 18.7139 8.51647C18.9667 8.41177 19.1964 8.25831 19.3898 8.06486C19.5833 7.8714 19.7367 7.64174 19.8414 7.38897C19.9461 7.13621 20 6.8653 20 6.59172V4.92505C19.9787 4.24036 19.7293 3.58238 19.2915 3.05551C18.8537 2.52864 18.2526 2.16304 17.5833 2.01672Z"
+                        fill="#3E3E3F" />
+                </svg>
+            </span>
+            <span class="hidden sm:inline">Konsultasi</span>
+        </button>
+
+        <nav class="flex md:hidden items-center gap-4" x-data="{ open: false }">
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden text-white" @click="open = !open">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                    </path>
+                </svg>
+            </button>
+
+            <!-- Mobile Dropdown Menu -->
+            <div class="absolute top-16 right-4 bg-white text-green-700 shadow-lg rounded-lg overflow-hidden min-w-40"
+                x-show="open" x-transition @click.away="open = false">
+                <div class="flex flex-col">
+                    <a href="{{ route('home') }}" class="px-4 py-2 border-b border-gray-200 hover:bg-green-50 text-sm">Beranda</a>
+                    <a href="{{ route('product') }}" class="px-4 py-2 border-b border-gray-200 hover:bg-green-50 text-sm">Produk
+                        Kami</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="relative text-white py-6 md:pt-32 md:pb-16 min-h-36 md:min-h-20 rounded-b-3xl md:rounded-b-[4rem]"
+    style="background: linear-gradient(135deg, rgba(5, 158, 10, 0.8) 0%, rgba(5, 65, 7, 0.8) 100%), url({{ asset('assets/images/hero-bg.webp') }}) center/cover no-repeat;">
+    <div class="md:hidden flex flex-col items-center gap-4 pt-6 px-8">
+        <a href="{{ route('home') }}" class="w-40">
+            <img src="{{ asset('assets/images/logo-putih.png') }}" alt="logo-spiceriatea" />
+        </a>
+        <p class="text-center font-light px-4">
+            Rahasia Sehat yang Berasal Langsung dari Alam.
+        </p>
+    </div>
+</section>

@@ -11,11 +11,19 @@ class ProductList extends Component
     public int $itemsPerPage = 3;
     public array $products = [];
 
-    public function mount(): void
+    public bool $withCategory = false;
+
+    public function mount($categoryId = null, $affiliateStoreName = null): void
     {
+        if ($categoryId || $affiliateStoreName) {
+            $this->withCategory = true;
+        }
+
         $this->products = Product::with('category', 'affiliateStore')
-            ->limit(6)
-            ->get()
+            ->when($categoryId, fn($query) => $query->where('category_id', $categoryId))
+            ->when($affiliateStoreName, fn($query) => $query->where('affiliate_type', $affiliateStoreName))
+            ->when(!$categoryId && !$affiliateStoreName, fn($query) => $query->limit(6))
+            ->lazy()
             ->toArray();
     }
 

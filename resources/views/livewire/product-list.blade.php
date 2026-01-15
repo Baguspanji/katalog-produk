@@ -14,13 +14,15 @@
         <div data-product-scroll
             class="grid grid-cols-2 md:flex md:overflow-x-auto gap-8 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden scroll-smooth"
             @scroll="handleScroll()">
-            <div class="hidden md:block text-2xl font-semibold border-l-4 border-gray-600 pl-3 pr-4 h-18">
-                <span class="text-green-600">Best</span>
-                <span>Seller</span>
-            </div>
+            @if (!$withCategory)
+                <div class="hidden md:block text-2xl font-semibold border-l-4 border-gray-600 pl-3 pr-4 h-18">
+                    <span class="text-green-600">Best</span>
+                    <span>Seller</span>
+                </div>
+            @endif
             @forelse ($products as $product)
-                <a href="{{ $product['affiliate_link'] ?? '#' }}" target="_blank" rel="noopener noreferrer"
-                    class="w-40 md:w-64 shrink-0">
+                <a href="{{ ($product['affiliate_type'] != 'Official' || $product['affiliate_link']) ? $product['affiliate_link'] : \App\Helpers\PhoneHelper::generateWhatsAppLink( $product['name']) }}"
+                    target="_blank" rel="noopener noreferrer" class="w-40 md:w-64 shrink-0">
                     @if ($product['image_link'])
                         <img src="{{ asset('storage/' . $product['image_link']) }}" alt="{{ $product['name'] }}"
                             class="rounded-lg w-40 md:w-64 h-40 md:h-64 object-cover" />

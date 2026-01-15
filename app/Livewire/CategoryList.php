@@ -12,7 +12,7 @@ class CategoryList extends Component
         $categories = Category::all();
 
         // add Tampil Semua to first $categories
-        $categories->prepend((object) ['name' => 'Tampil Semua', 'logo_url' => null]);
+        $categories->prepend((object) ['id' => null, 'name' => 'Tampil Semua', 'logo_url' => null]);
 
         return view('livewire.category-list', [
             'categories' => $categories,

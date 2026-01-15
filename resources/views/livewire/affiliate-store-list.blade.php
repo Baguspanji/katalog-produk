@@ -1,6 +1,6 @@
 <div class="flex justify-center md:flex-wrap gap-2">
     @forelse ($stores as $store)
-        <a href="{{ $store->url }}" target="_blank" rel="noopener noreferrer"
+        <a href="{{ route('product-affiliate', ['id' => $store->id]) }}" rel="noopener noreferrer"
             class="md:w-[47%] md:p-4 text-center flex flex-col items-center gap-1 md:gap-2">
             @if ($store->logo_url)
                 <img src="{{ asset('storage/' . $store->logo_url) }}" alt="{{ $store->name }}"

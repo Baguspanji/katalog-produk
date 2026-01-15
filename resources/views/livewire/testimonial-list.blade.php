@@ -5,7 +5,7 @@
                 @if ($index === $currentIndex)
                     <div wire:key="testimonial-{{ $index }}"
                         x-transition:enter="transition ease-in-out duration-500"
-                        x-transition:leave="transition ease-in-out duration-500" class="bg-white rounded-xl shadow p-6">
+                        x-transition:leave="transition ease-in-out duration-500" class="bg-white rounded-xl shadow p-3 md:p-6">
                         <div class="flex items-center gap-4">
                             <div class="flex gap-1">
                                 @for ($i = 1; $i <= 5; $i++)

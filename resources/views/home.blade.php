@@ -35,8 +35,8 @@
     <!-- ================= MARKETPLACE ================= -->
     <section class="max-w-7xl mx-auto px-6 py-6 md:py-14">
         <h2 class="text-normal md:text-2xl font-normal md:font-semibold mb-6 pb-2 relative inline-block">
-            Online Store
-            <span class="absolute bottom-0 left-0 h-1 w-26 md:w-38 bg-green-600"></span>
+            Link Spil
+            <span class="absolute bottom-0 left-0 h-1 w-18 md:w-26 bg-green-600"></span>
         </h2>
 
         <livewire:affiliate-store-list />

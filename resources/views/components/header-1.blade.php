@@ -6,10 +6,8 @@
 
         <!-- Desktop Navigation -->
         <div class="hidden md:flex gap-2">
-            <a href="#" class="hover:text-green-200 border border-white rounded-full px-8 py-1.5">Beranda</a>
-            <a href="#"
-                class="hover:text-green-200 border border-transparent rounded-full px-8 py-1.5 hover:border-green-200">Produk
-                Kami</a>
+            <a href="{{ route('home') }}" class="rounded-full px-8 py-1.5 border @if(Route::is('home')) border-green-200 text-green-200 @else border-transparent hover:text-green-200 hover:border-green-200 @endif">Beranda</a>
+            <a href="{{ route('product') }}" class="rounded-full px-8 py-1.5 border @if(Route::is('product')) border-green-200 text-green-200 @else border-transparent hover:text-green-200 hover:border-green-200 @endif">Produk Kami</a>
         </div>
 
         <button
@@ -44,8 +42,8 @@
             <div class="absolute top-16 right-4 bg-white text-green-700 shadow-lg rounded-lg overflow-hidden min-w-40"
                 x-show="open" x-transition @click.away="open = false">
                 <div class="flex flex-col">
-                    <a href="#" class="px-4 py-2 border-b border-gray-200 hover:bg-green-50 text-sm">Beranda</a>
-                    <a href="#" class="px-4 py-2 border-b border-gray-200 hover:bg-green-50 text-sm">Produk
+                    <a href="{{ route('home') }}" class="px-4 py-2 border-b border-gray-200 hover:bg-green-50 text-sm">Beranda</a>
+                    <a href="{{ route('product') }}" class="px-4 py-2 border-b border-gray-200 hover:bg-green-50 text-sm">Produk
                         Kami</a>
                 </div>
             </div>
@@ -54,7 +52,7 @@
 </header>
 
 <!-- ================= HERO ================= -->
-<section class="relative text-white py-6 md:pt-32 md:pb-16 min-h-36 md:min-h-screen rounded-b-3xl md:rounded-b-[6rem]"
+<section class="relative text-white py-6 md:pt-32 md:pb-16 min-h-36 md:min-h-screen rounded-b-3xl md:rounded-b-[4rem]"
     style="background: linear-gradient(135deg, rgba(5, 158, 10, 0.8) 0%, rgba(5, 65, 7, 0.8) 100%), url({{ asset('assets/images/hero-bg.webp') }}) center/cover no-repeat;">
     <div class="max-w-6xl mx-auto px-10 py-16 hidden md:grid md:grid-cols-2 gap-10 items-center">
         <div>
