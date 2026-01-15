@@ -2,9 +2,9 @@
 
 @section('content')
     <!-- ================= NAVBAR ================= -->
-    <header class="bg-transparent text-white absolute w-full z-10 py-10">
-        <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
-            <a href="{{ route('home') }}" class="w-40 md:w-64">
+    <header class="bg-transparent text-white absolute w-full z-10 py-2 md:py-10">
+        <div class="max-w-7xl mx-auto flex items-center justify-end md:justify-between px-6 py-4">
+            <a href="{{ route('home') }}" class="hidden md:block w-40 md:w-64">
                 <img src="{{ asset('assets/images/logo-putih.png') }}" alt="logo-spiceriatea" />
             </a>
 
@@ -12,13 +12,8 @@
             <div class="hidden md:flex gap-2">
                 <a href="#" class="hover:text-green-200 border border-white rounded-full px-8 py-1.5">Beranda</a>
                 <a href="#"
-                    class="hover:text-green-200 border border-transparent rounded-full px-4 py-1.5 hover:border-green-200 hover:px-8">Produk
+                    class="hover:text-green-200 border border-transparent rounded-full px-8 py-1.5 hover:border-green-200">Produk
                     Kami</a>
-                <a href="#"
-                    class="hover:text-green-200 border border-transparent rounded-full px-4 py-1.5 hover:border-green-200 hover:px-8">Tentang
-                    Kami</a>
-                <a href="#"
-                    class="hover:text-green-200 border border-transparent rounded-full px-4 py-1.5 hover:border-green-200 hover:px-8">Kontak</a>
             </div>
 
             <button
@@ -40,7 +35,7 @@
                 <span class="hidden sm:inline">Konsultasi</span>
             </button>
 
-            <nav class="flex items-center gap-4" x-data="{ open: false }">
+            <nav class="flex md:hidden items-center gap-4" x-data="{ open: false }">
                 <!-- Mobile Menu Button -->
                 <button class="md:hidden text-white" @click="open = !open">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -50,15 +45,12 @@
                 </button>
 
                 <!-- Mobile Dropdown Menu -->
-                <div class="md:hidden absolute top-24 right-4 bg-white text-green-700 shadow-lg rounded-lg overflow-hidden min-w-52"
+                <div class="absolute top-24 right-4 bg-white text-green-700 shadow-lg rounded-lg overflow-hidden min-w-52"
                     x-show="open" x-transition @click.away="open = false">
                     <div class="flex flex-col">
                         <a href="#" class="px-4 py-2 border-b border-gray-200 hover:bg-green-50 text-sm">Beranda</a>
                         <a href="#" class="px-4 py-2 border-b border-gray-200 hover:bg-green-50 text-sm">Produk
                             Kami</a>
-                        <a href="#" class="px-4 py-2 border-b border-gray-200 hover:bg-green-50 text-sm">Tentang
-                            Kami</a>
-                        <a href="#" class="px-4 py-2 hover:bg-green-50 text-sm">Kontak</a>
                     </div>
                 </div>
             </nav>
@@ -66,9 +58,9 @@
     </header>
 
     <!-- ================= HERO ================= -->
-    <section class="relative text-white pt-32 pb-16 min-h-screen rounded-b-[6rem]"
+    <section class="relative text-white py-6 md:pt-32 md:pb-16 min-h-36 md:min-h-screen rounded-b-3xl md:rounded-b-[6rem]"
         style="background: linear-gradient(135deg, rgba(5, 158, 10, 0.8) 0%, rgba(5, 65, 7, 0.8) 100%), url({{ asset('assets/images/hero-bg.webp') }}) center/cover no-repeat;">
-        <div class="max-w-6xl mx-auto px-10 py-16 grid md:grid-cols-2 gap-10 items-center">
+        <div class="max-w-6xl mx-auto px-10 py-16 hidden md:grid md:grid-cols-2 gap-10 items-center">
             <div>
                 <h1 class="text-[2.5rem] md:text-5xl font-semibold leading-tight">
                     Rahasia Sehat yang Berasal Langsung dari Alam.
@@ -128,25 +120,34 @@
                     class="absolute w-100 top-50 lg:w-180 lg:top-30 lg:right-20" />
             </div>
         </div>
+
+        <div class="md:hidden flex flex-col items-center gap-4 pt-6 px-8">
+            <a href="{{ route('home') }}" class="w-40">
+                <img src="{{ asset('assets/images/logo-putih.png') }}" alt="logo-spiceriatea" />
+            </a>
+            <p class="text-center font-light px-4">
+                Rahasia Sehat yang Berasal Langsung dari Alam.
+            </p>
+        </div>
     </section>
 
     <!-- ================= KATEGORI ================= -->
-    <section class="max-w-7xl mx-auto px-6 py-14">
-        <h2 class="text-xl md:text-2xl font-normal md:font-semibold mb-8 pb-2 relative inline-block">
+    <section class="max-w-7xl mx-auto px-6 py-6 md:py-14">
+        <h2 class="text-normal md:text-2xl font-normal md:font-semibold mb-8 pb-2 relative inline-block">
             Kategori
-            <span class="absolute bottom-0 left-0 h-1 w-22 md:w-30 bg-green-600"></span>
+            <span class="absolute bottom-0 left-0 h-1 w-18 md:w-30 bg-green-600"></span>
         </h2>
 
         <livewire:category-list />
     </section>
 
     <!-- ================= PRODUK ================= -->
-    <section class="bg-gray-50 py-14">
+    <section class="bg-gray-50 py-6 md:py-14">
         <div class="max-w-7xl mx-auto px-6">
             <div class="flex justify-between items-center mb-8">
-                <h2 class="text-xl md:text-2xl font-normal md:font-semibold pb-2 relative inline-block">
+                <h2 class="text-normal md:text-2xl font-normal md:font-semibold pb-2 relative inline-block">
                     Produk Kami
-                    <span class="absolute bottom-0 left-0 h-1 w-32 md:w-40 bg-green-600"></span>
+                    <span class="absolute bottom-0 left-0 h-1 w-26 md:w-40 bg-green-600"></span>
                 </h2>
                 <button
                     class="bg-green-600 text-white text-xs md:text-sm px-4 md:px-8 py-1 md:py-2 rounded-lg cursor-pointer">
@@ -159,24 +160,23 @@
     </section>
 
     <!-- ================= MARKETPLACE ================= -->
-    <section class="max-w-7xl mx-auto px-6 py-14">
-        <h2 class="text-xl md:text-2xl font-normal md:font-semibold mb-6 pb-2 relative inline-block">
+    <section class="max-w-7xl mx-auto px-6 py-6 md:py-14">
+        <h2 class="text-normal md:text-2xl font-normal md:font-semibold mb-6 pb-2 relative inline-block">
             Online Store
-            <span class="absolute bottom-0 left-0 h-1 w-30 md:w-38 bg-green-600"></span>
+            <span class="absolute bottom-0 left-0 h-1 w-26 md:w-38 bg-green-600"></span>
         </h2>
 
         <livewire:affiliate-store-list />
     </section>
 
-    <!-- ⭐ TESTIMONI ⭐ -->
-    <section class="bg-green-50 py-14">
+    <!-- ================= TESTIMONI ================= -->
+    <section class="bg-green-50 py-6 md:py-14">
         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-5 gap-10 items-center">
             <div class="col-span-2">
-                <h4 class="text-normal text-gray-500 mb-4">Testimoni</h4>
-                <h2 class="text-2xl font-semibold mb-4 border-l-4 border-green-600 pl-3">Apa Kata Mereka?</h2>
-                <p class="text-gray-500 pl-4 leading-tight">
-                    Dengarkan apa yang dirasakan oleh mitra & konsumen kami setelah
-                    berbelanja produk kami.
+                <h4 class="text-sm md:text-normal text-gray-500 mb-4">Testimoni</h4>
+                <h2 class="text-lg md:text-2xl font-semibold mb-4 border-l-4 border-green-600 pl-3">Apa Kata Mereka?</h2>
+                <p class="text-sm md:text-normal text-gray-500 pl-4 leading-tight">
+                    Dengarkan apa yang dirasakan oleh mitra & konsumen kami setelah berbelanja produk kami.
                 </p>
             </div>
 
