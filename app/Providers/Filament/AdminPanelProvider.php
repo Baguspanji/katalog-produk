@@ -21,6 +21,7 @@ use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\HtmlString;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Joaopaulolndev\FilamentEditProfile\FilamentEditProfilePlugin;
 use Joaopaulolndev\FilamentEditProfile\Pages\EditProfilePage;
@@ -35,8 +36,17 @@ class AdminPanelProvider extends PanelProvider
             ->path('admin')
             ->login()
             ->colors([
-                'primary' => Color::Amber,
+                'primary' => Color::hex('#00a63e'),
             ])
+            ->brandLogo(new HtmlString('
+                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                    <img src="' . asset('favicon-32x32.png') . '" alt="Logo" style="height: 32px;">
+                    <span style="font-weight: bold; font-size: 1.25rem;">
+                        Spiceriatea
+                    </span>
+                </div>
+            '))
+            // ->brandName('Katalog Produk')
             ->darkMode(false)
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\Filament\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\Filament\Pages')

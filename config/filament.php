@@ -128,4 +128,11 @@ return [
 
     'locale' => 'id',
 
+    'layout' => [
+        'sidebar' => [
+            'is_collapsible_on_desktop' => true,
+            'is_collapsible' => true,
+            'collapsed_by_default' => false,
+        ],
+    ],
 ];

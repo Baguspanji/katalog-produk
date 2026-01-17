@@ -13,9 +13,20 @@ class ProductClicksChartWidget extends ChartWidget
     protected static ?int $sort = 3;
 
     protected ?array $options = [
+        // 'indexAxis' => 'y',
         'plugins' => [
             'legend' => [
                 'display' => false,
+            ],
+            'tooltip' => [
+                'enabled' => true,
+            ],
+        ],
+        'scales' => [
+            'x' => [
+                'ticks' => [
+                    'callback' => 'function(value) { return value; }',
+                ],
             ],
         ],
     ];
