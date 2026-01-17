@@ -24,7 +24,7 @@
                 </div>
             @endif
             @forelse ($products as $product)
-                <div x-on:click="handleProduct({{ $product['id'] }})" class="w-40 md:w-64 shrink-0 cursor-pointer">
+                <a href="{{ route('product-click', ['id' => $product['id']]) }}" target="_blank" class="w-40 md:w-64 shrink-0 cursor-pointer">
                     @if ($product['image_link'])
                         <img src="{{ asset('storage/' . $product['image_link']) }}" alt="{{ $product['name'] }}"
                             class="rounded-lg w-40 md:w-64 h-40 md:h-64 object-cover" />
@@ -50,7 +50,7 @@
                                 alt="{{ $product['affiliate_store']['name'] ?? '' }}" class="w-6 h-6" />
                         @endif
                     </div>
-                </div>
+                </a>
             @empty
                 <div class="col-span-2 md:col-span-3 text-center py-8">
                     <p class="text-gray-500">Belum ada produk tersedia</p>

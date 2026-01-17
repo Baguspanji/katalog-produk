@@ -24,3 +24,17 @@ Route::get('/produk-affiliate/{id}', function ($id) {
 
     return view('product-affiliate', compact('affiliateStore'));
 })->name('product-affiliate');
+Route::get('/produk/klik/{id}', function ($id) {
+    $product = \App\Models\Product::findOrFail($id);
+
+    $product->increment('click_count');
+
+    $link = ($product->affiliate_type != 'Official' || $product->affiliate_link)
+            ? $product->affiliate_link
+            : \App\Helpers\PhoneHelper::generateWhatsAppLink($product->name);
+
+    header('Location: ' . $link);
+    exit;
+
+    // return view('product-click', compact('product'));
+})->name('product-click');
